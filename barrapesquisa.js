@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const removeAcentos = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-  // Guardar o pai original de cada card
+
   const allCols = document.querySelectorAll('.product-list .col-5th');
   allCols.forEach(col => {
     const parent = col.parentElement;
@@ -14,15 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function restoreAll() {
-    // devolve todos os cards ao pai original
-    const movedCols = document.querySelectorAll('#search-results .col-5th');
+ 
+  const movedCols = document.querySelectorAll('#search-results .col-5th');
     movedCols.forEach(col => {
       const parent = document.getElementById(col.dataset.parentId);
       if (parent) parent.appendChild(col);
     });
     resultsRow.innerHTML = '';
     if (infoRodape) infoRodape.textContent = '';
-    // mostrar todos novamente
+
     document.querySelectorAll('.product-list .col-5th').forEach(col => col.style.display = '');
   }
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       infoRodape.textContent = `Você pesquisou por: "${searchTerm}"`;
 
-      // devolver qualquer item que esteja nos resultados antes de nova busca
+     
       const existingResults = document.querySelectorAll('#search-results .col-5th');
       existingResults.forEach(col => {
         const parent = document.getElementById(col.dataset.parentId);
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (match) {
-          resultsRow.appendChild(col); // move para o topo
+          resultsRow.appendChild(col); 
           col.style.display = '';
           foundCount++;
         } else {
